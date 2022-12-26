@@ -27,6 +27,7 @@
 ## 사용 기술
 
 ![java](https://img.shields.io/badge/Java-11-DEB887?style=flat)&nbsp;![springboot](https://img.shields.io/badge/SpringBoot-3.0.1-3CB371?style=flat&logo=springboot)&nbsp;![gradle](https://img.shields.io/badge/Gradle-7.5.1-skyblue?style=flat&logo=gradle)
+![kotlin](https://img.shields.io/badge/Kotlin-1.7.22-7f52ff?style=flat&logo=kotlin)
 
 **백엔드**
 - Kotlin
