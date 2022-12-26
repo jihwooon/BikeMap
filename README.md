@@ -1,4 +1,7 @@
 # BIKE MAP
+![GitHub last commit][GitHub-last-commit]
+[![Guide Documents](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/jihwooon/Algorithm-JavaScript/wiki)
+[![Version](https://img.shields.io/badge/version-2022.12.26-red.svg)](./CHANGELOG)
 
 > 자전거 여행을 준비하거나 즐기는 바이커들에게
 도움을 주기 위한 웹페이지를 만들자!
@@ -39,6 +42,12 @@
 **프론트엔드**
 - React
 
+## Content
+[![Guide Documents](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/jihwooon/Algorithm-JavaScript/wiki)
+
+자세한 내용을 확인 하고 싶으시면, [Wiki Documentation](https://github.com/jihwooon/Algorithm-JavaScript/wiki)를 참조 하시면 됩니다.
 
 
+[GitHub-last-commit]: https://img.shields.io/github/last-commit/jihwooon/BikeMap?style=flat-square
+[GitHub-pull-request]: https://img.shields.io/github/issues-pr/jihwooon/BikeMap?color=ff69b4
 
