@@ -15,6 +15,7 @@
 ![IntelliJ](https://img.shields.io/badge/MariaDB-green?style=flast&logo=mariadb)&nbsp;![IntelliJ](https://img.shields.io/badge/DataGrip-blue?style=flast&logo=DataGrip&logoColor=while)
 - MacOS M1
 - IntelliJ
+- WebStrom
 - GitHub
 - Docker
 - DataGrip
@@ -25,13 +26,17 @@
 ![java](https://img.shields.io/badge/Java-11-DEB887?style=flat)&nbsp;![springboot](https://img.shields.io/badge/SpringBoot-2.7.6-3CB371?style=flat&logo=springboot)&nbsp;![gradle](https://img.shields.io/badge/Gradle-7.5.1-skyblue?style=flat&logo=gradle)
 
 **백엔드**
-- Java 11 openjdk
-- SpringBoot 2.7.2
-- Spring Security5
+- Kotlin
+- SpringBoot 3.0.1
 - Spring Data JPA
 - Lombok
 
+- Node
+- TypeScript
+- Express
 
+**프론트엔드**
+- React
 
 
 
