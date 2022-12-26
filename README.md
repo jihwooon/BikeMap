@@ -23,13 +23,14 @@
 
 ## 사용 기술
 
-![java](https://img.shields.io/badge/Java-11-DEB887?style=flat)&nbsp;![springboot](https://img.shields.io/badge/SpringBoot-2.7.6-3CB371?style=flat&logo=springboot)&nbsp;![gradle](https://img.shields.io/badge/Gradle-7.5.1-skyblue?style=flat&logo=gradle)
+![java](https://img.shields.io/badge/Java-11-DEB887?style=flat)&nbsp;![springboot](https://img.shields.io/badge/SpringBoot-3.0.1-3CB371?style=flat&logo=springboot)&nbsp;![gradle](https://img.shields.io/badge/Gradle-7.5.1-skyblue?style=flat&logo=gradle)
 
 **백엔드**
 - Kotlin
 - SpringBoot 3.0.1
 - Spring Data JPA
 - Lombok
+- gradle
 
 - Node
 - TypeScript
