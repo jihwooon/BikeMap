@@ -9,5 +9,4 @@ class KotlinServerApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }
