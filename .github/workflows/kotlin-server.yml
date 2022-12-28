@@ -1,1 +1,19 @@
+name: ktlint
 
+on:
+  pull_request:
+    paths:
+      - "**/*.kt"
+      - ".github/workflows/kotlin-server.yml"
+
+jobs:
+  ktlint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v2
+
+      - name: "ktlint"
+        uses: "block42-blockchain-company/ktlint-action@master"
+        
