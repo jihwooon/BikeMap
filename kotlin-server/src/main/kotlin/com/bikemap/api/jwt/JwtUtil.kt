@@ -1,5 +1,6 @@
 package com.bikemap.api.jwt
 
+import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
@@ -22,10 +23,25 @@ class JwtUtil(
     fun generateAccessToken(userId: Long): String = generateToken(userId, accessTokenKey)
     fun generateRefreshToken(userId: Long): String = generateToken(userId, refreshTokenKey)
 
+    fun parsingAccessToken(token: String): Claims = parsingToken(token, accessTokenKey)
+    fun parsingRefreshToken(token: String): Claims = parsingToken(token, refreshTokenKey)
+
     fun generateToken(userId: Long, key: Key): String {
         return Jwts.builder()
             .claim("id", userId)
             .signWith(key)
             .compact()
+    }
+
+    fun parsingToken(token: String, key: Key): Claims {
+        try {
+            return Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .body
+        } catch (e: Exception) {
+            throw IllegalArgumentException("잘못된 토큰 입니다.")
+        }
     }
 }
