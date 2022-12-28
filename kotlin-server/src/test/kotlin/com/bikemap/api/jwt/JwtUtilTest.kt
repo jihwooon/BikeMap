@@ -1,5 +1,6 @@
 package com.bikemap.api.jwt
 
+import io.jsonwebtoken.security.SignatureException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
@@ -48,8 +49,8 @@ class JwtUtilTest : DescribeSpec() {
                 }
             }
             context("잘못된 accessToken이 주어지면") {
-                it("IllegalArgumentException를 던진다.") {
-                    val exception = shouldThrow<IllegalArgumentException> {
+                it("SignatureException를 던진다.") {
+                    val exception = shouldThrow<SignatureException> {
                         jwtUtil.parsingAccessToken(WRONG_TOKEN)
                     }
 
@@ -57,8 +58,8 @@ class JwtUtilTest : DescribeSpec() {
                 }
             }
             context("잘못된 refreshToken이 주어지면") {
-                it("IllegalArgumentException를 던진다.") {
-                    val exception = shouldThrow<IllegalArgumentException> {
+                it("SignatureException를 던진다.") {
+                    val exception = shouldThrow<SignatureException> {
                         jwtUtil.parsingRefreshToken(WRONG_TOKEN)
                     }
 

@@ -3,6 +3,7 @@ package com.bikemap.api.jwt
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
+import io.jsonwebtoken.security.SignatureException
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import java.security.Key
@@ -41,7 +42,7 @@ class JwtUtil(
                 .parseClaimsJws(token)
                 .body
         } catch (e: Exception) {
-            throw IllegalArgumentException("잘못된 토큰 입니다.")
+            throw SignatureException("잘못된 토큰 입니다.")
         }
     }
 }
