@@ -1,19 +1,41 @@
-name: ktlint
+name: kotlin server CI
 
 on:
-  pull_request:
+  push:
+    branches: ["main"]
     paths:
-      - "**/*.kt"
-      - ".github/workflows/kotlin-server.yml"
-
+      - "kotlin-server/**"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "kotlin-server/**"
 jobs:
-  ktlint:
+  build:
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./kotlin-server
 
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: corretto
+          java-version: 17
+      - name: Test
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
+          build-root-directory: server-kotlin
+      - name: Assemble
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assemble
+          build-root-directory: server-kotlin
       - name: "checkout"
         uses: actions/checkout@v2
-
       - name: "ktlint"
         uses: "block42-blockchain-company/ktlint-action@master"
         
