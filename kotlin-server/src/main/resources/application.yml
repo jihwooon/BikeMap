@@ -1,2 +1,4 @@
 jwt:
-  secret: mNBZi54FTyebKFhZQFZ2qyzZzg8Xondv
+  secret:
+    accessToken: mNBZi54FTyebKFhZQFZ2qyzZzg8Xondv
+    refreshToken: uhdmsn8rvh4bpqve4c8htumjbliqiv
