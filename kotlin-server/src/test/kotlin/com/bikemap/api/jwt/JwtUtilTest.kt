@@ -4,6 +4,7 @@ import io.jsonwebtoken.security.SignatureException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 
 class JwtUtilTest : DescribeSpec() {
 
@@ -22,14 +23,14 @@ class JwtUtilTest : DescribeSpec() {
                 it("accessToken을 반환한다.") {
                     val accessToken = jwtUtil.generateAccessToken(userId)
 
-                    accessToken shouldBe ACCESS_TOKEN
+                    accessToken shouldNotBe null
                 }
             }
             context("refreshSecret 정보가 주어지면") {
                 it("refreshToken을 반환한다.") {
                     val refreshToken = jwtUtil.generateRefreshToken(userId)
 
-                    refreshToken shouldBe REFRESH_TOKEN
+                    refreshToken shouldNotBe null
                 }
             }
             context("accessToken 정보가 주어지면") {
