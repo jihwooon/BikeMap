@@ -7,6 +7,10 @@ import io.jsonwebtoken.security.SignatureException
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import java.security.Key
+import java.util.Date
+
+const val ACCESS_TOKEN_EXPIRY: Long = 1000 * 60 * 30
+const val REFRESH_TOKEN_EXPIRY: Long = 1000 * 60 * 60 * 24
 
 @Component
 class JwtUtil(
@@ -21,16 +25,19 @@ class JwtUtil(
         this.refreshTokenKey = Keys.hmacShaKeyFor(refreshToken.toByteArray())
     }
 
-    fun generateAccessToken(userId: Long): String = generateToken(userId, accessTokenKey)
-    fun generateRefreshToken(userId: Long): String = generateToken(userId, refreshTokenKey)
+    fun generateAccessToken(userId: Long): String = generateToken(userId, accessTokenKey, ACCESS_TOKEN_EXPIRY)
+    fun generateRefreshToken(userId: Long): String = generateToken(userId, refreshTokenKey, REFRESH_TOKEN_EXPIRY)
 
     fun parsingAccessToken(token: String): Claims = parsingToken(token, accessTokenKey)
     fun parsingRefreshToken(token: String): Claims = parsingToken(token, refreshTokenKey)
 
-    fun generateToken(userId: Long, key: Key): String {
+    private fun getExpirationDate(expiry: Long): Long = Date().time + expiry
+
+    fun generateToken(userId: Long, key: Key, expiry: Long): String {
         return Jwts.builder()
             .claim("id", userId)
             .signWith(key)
+            .setExpiration(Date(getExpirationDate(expiry)))
             .compact()
     }
 
