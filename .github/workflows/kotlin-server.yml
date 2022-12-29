@@ -28,12 +28,12 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: test
-          build-root-directory: server-kotlin
+          build-root-directory: kotlin-server
       - name: Assemble
         uses: gradle/gradle-build-action@v2
         with:
           arguments: assemble
-          build-root-directory: server-kotlin
+          build-root-directory: kotlin-server
       - name: "checkout"
         uses: actions/checkout@v2
       - name: "ktlint"
