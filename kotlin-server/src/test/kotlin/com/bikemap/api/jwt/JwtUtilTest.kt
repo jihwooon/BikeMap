@@ -13,8 +13,10 @@ class JwtUtilTest : DescribeSpec() {
     private val ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.vMou9TCv70zWW2SGzPVB2R7go07DYfX_CKTyX2UEfDM"
     private val REFRESH_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.KCWqyeQwpjw1z7bwG0yuPx4rTyRtYkPc6Pj0jYugmlM"
     private val WRONG_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.vMou9TCv70zWW2SGzPVB2R7go07DYfX_CKTyX2UEf123"
+    private val ACCESS_TOKEN_EXPIRY: Long = 1000 * 60 * 30
+    private val REFRESH_TOKEN_EXPIRY: Long = 1000 * 60 * 60 * 24
 
-    private val jwtUtil = JwtUtil(ACCESS_TOKEN_SECRET, REFRESH_TOKEN_SECRET)
+    private val jwtUtil = JwtUtil(ACCESS_TOKEN_SECRET, REFRESH_TOKEN_SECRET, ACCESS_TOKEN_EXPIRY, REFRESH_TOKEN_EXPIRY)
 
     init {
         describe("JwtUtil class") {
