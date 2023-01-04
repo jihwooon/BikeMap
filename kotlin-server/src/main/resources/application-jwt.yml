@@ -1,8 +1,0 @@
-jwt:
-    secret: BuTjROwnlBmhNSUwLbjjQw6Dp4UgAKtQ
-
-    accessToken:
-        expiration: 1000
-
-    refreshToken:
-        expiration: 1000
