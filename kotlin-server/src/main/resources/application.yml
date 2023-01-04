@@ -1,4 +1,3 @@
-jwt:
-  secret:
-    accessToken: BuTjROwnlBmhNSUwLbjjQw6Dp4UgAKtQ
-    refreshToken: UgbnMfaUdnKLdl6Rw3lQ59AxMltNctmy
+spring:
+    profiles:
+        include: jwt
