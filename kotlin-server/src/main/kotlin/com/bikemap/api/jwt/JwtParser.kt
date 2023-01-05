@@ -1,4 +1,4 @@
-package com.bikemap.api.auth.jwt
+package com.bikemap.api.jwt
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
@@ -10,8 +10,8 @@ import java.security.Key
 
 @Component
 class JwtParser(
-    @Value("\${jwt.secret.accessToken}") accessToken: String,
-    @Value("\${jwt.secret.refreshToken}") refreshToken: String
+    @Value("\${jwt.secret}") accessToken: String,
+    @Value("\${jwt.secret}") refreshToken: String
 ) {
     private val accessTokenKey: Key
     private val refreshTokenKey: Key
