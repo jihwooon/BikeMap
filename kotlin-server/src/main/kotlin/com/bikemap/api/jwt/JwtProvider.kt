@@ -1,4 +1,4 @@
-package com.bikemap.api.auth.jwt
+package com.bikemap.api.jwt
 
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
@@ -9,8 +9,8 @@ import java.util.Date
 
 @Component
 class JwtProvider(
-    @Value("\${jwt.secret.accessToken}") accessToken: String,
-    @Value("\${jwt.secret.refreshToken}") refreshToken: String,
+    @Value("\${jwt.secret}") accessToken: String,
+    @Value("\${jwt.secret}") refreshToken: String,
     @Value("\${jwt.accessToken.expiration}") accessExpiry: Long,
     @Value("\${jwt.refreshToken.expiration}") refreshExpiry: Long
 ) {
