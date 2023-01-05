@@ -1,6 +1,5 @@
 package com.bikemap.api.jwt
 
-import com.bikemap.api.auth.jwt.JwtProvider
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldNotBe
 

@@ -1,6 +1,5 @@
 package com.bikemap.api.jwt
 
-import com.bikemap.api.auth.jwt.JwtParser
 import io.jsonwebtoken.security.SignatureException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.DescribeSpec
