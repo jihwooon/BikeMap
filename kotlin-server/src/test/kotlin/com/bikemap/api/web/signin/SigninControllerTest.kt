@@ -14,11 +14,11 @@ import org.springframework.test.web.servlet.post
 
 @WebMvcTest(SigninController::class)
 class SigninControllerTest(mockMvc: MockMvc) : DescribeSpec() {
-    val objectMapper = ObjectMapper().registerModule(KotlinModule())
 
     @MockkBean
     private lateinit var signinService: SigninService
 
+    val objectMapper = ObjectMapper().registerModule(KotlinModule())
     val signinData =
         SigninRequest("test@email.com", "1234")
 
