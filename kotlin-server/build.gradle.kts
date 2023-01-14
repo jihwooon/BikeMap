@@ -47,6 +47,13 @@ dependencies {
 
     // springmokk
     testImplementation("com.ninja-squad:springmockk:4.0.0")
+
+    // jpa
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    runtimeOnly("com.h2database:h2:2.1.214")
+
+    // mariadb
+    runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 }
 
 tasks.withType<KotlinCompile> {

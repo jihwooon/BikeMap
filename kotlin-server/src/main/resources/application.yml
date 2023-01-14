@@ -1,3 +1,33 @@
+server:
+    port: 8087
+
 spring:
     profiles:
       include: jwt
+    datasource:
+      url: ${url:jdbc:mariadb://localhost:3307/bikemap}
+      username: root
+      password: root1234
+      driver-class-name: org.mariadb.jdbc.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: create
+        properties:
+            hibernate:
+                show_sql: true
+                format_sql: true
+
+---
+
+spring:
+    config:
+        activate:
+            on-profile: test
+    datasource:
+        url: jdbc:h2:mem:bikemap;MODE=MariaDB
+        username: root
+        password: root1234
+        driver-class-name: org.h2.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
