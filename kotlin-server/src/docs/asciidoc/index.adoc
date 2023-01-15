@@ -1,0 +1,10 @@
+= BikeMap REST Docs
+:doctype: book
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+
+include::Signin.adoc[]
+
+
+

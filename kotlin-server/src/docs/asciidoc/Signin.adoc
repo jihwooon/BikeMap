@@ -1,0 +1,6 @@
+[[Signin]]
+== 로그인
+
+이메일과 패스워드를 입력합니다.
+
+operation::signin-post[snippets='http-request,response-body,request-fields']
