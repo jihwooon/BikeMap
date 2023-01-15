@@ -102,7 +102,7 @@ tasks {
     bootJar {
         dependsOn(asciidoctor)
         from(asciidoctor.get().outputDir) {
-            into("BOOT-INF/classes/static/docs")
+            into("static/docs")
         }
     }
 }
