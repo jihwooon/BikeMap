@@ -8,11 +8,16 @@ plugins {
 
     id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
     id("org.jlleitschuh.gradle.ktlint-idea") version "11.0.0"
+
+    id("org.asciidoctor.jvm.convert") version "3.3.2"
 }
 
 group = "com.bikemap"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
+
+val asciidoctorExt: Configuration by configurations.creating // (2)
+val snippetsDir by extra { "build/generated-snippets" }
 
 repositories {
     mavenCentral()
@@ -54,15 +59,50 @@ dependencies {
 
     // mariadb
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+
+    // spring-Rest-Docs
+    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc:3.0.0")
+
+    // asciidoctor
+    asciidoctorExt("org.springframework.restdocs:spring-restdocs-asciidoctor:3.0.0")
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "17"
+        }
     }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
+    withType<Test> {
+        useJUnitPlatform()
+    }
+    test {
+        useJUnitPlatform()
+        outputs.dir(snippetsDir)
+    }
+    asciidoctor {
+        doFirst {
+            delete("src/main/resources/static/docs")
+        }
+        inputs.dir(snippetsDir)
+        configurations("asciidoctorExt")
+        dependsOn(test)
+        baseDirFollowsSourceFile()
+    }
+    register<Copy>("copyDocs") {
+        dependsOn(asciidoctor)
+        file(".")
+        from(asciidoctor.get().outputDir)
+        into("src/main/resources/static/docs")
+    }
+    build {
+        dependsOn("copyDocs")
+    }
+    bootJar {
+        dependsOn(asciidoctor)
+        from(asciidoctor.get().outputDir) {
+            into("BOOT-INF/classes/static/docs")
+        }
+    }
 }
