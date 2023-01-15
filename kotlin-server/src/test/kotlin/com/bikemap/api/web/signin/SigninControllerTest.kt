@@ -7,11 +7,18 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.ninjasquad.springmockk.MockkBean
 import io.kotest.core.spec.style.DescribeSpec
 import io.mockk.every
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.http.MediaType
+import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
+import org.springframework.restdocs.operation.preprocess.Preprocessors
+import org.springframework.restdocs.payload.JsonFieldType
+import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
+import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
 
+@AutoConfigureRestDocs
 @WebMvcTest(SigninController::class)
 class SigninControllerTest(mockMvc: MockMvc) : DescribeSpec() {
 
@@ -39,6 +46,18 @@ class SigninControllerTest(mockMvc: MockMvc) : DescribeSpec() {
                         status { isCreated() }
                         jsonPath("$.accessToken") { isString() }
                         jsonPath("$.refreshToken") { isString() }
+                    }.andDo {
+                        handle(
+                            document(
+                                "signin-post",
+                                Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+                                Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),
+                                requestFields(
+                                    fieldWithPath("email").type(JsonFieldType.STRING).description("이메일"),
+                                    fieldWithPath("password").type(JsonFieldType.STRING).description("패스워드"),
+                                )
+                            )
+                        )
                     }
                 }
             }
