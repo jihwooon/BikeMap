@@ -10,6 +10,7 @@ import io.mockk.every
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.http.MediaType
+import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
 import org.springframework.restdocs.operation.preprocess.Preprocessors
 import org.springframework.restdocs.payload.JsonFieldType
@@ -27,7 +28,7 @@ class SigninControllerTest(mockMvc: MockMvc) : DescribeSpec() {
 
     val objectMapper = ObjectMapper().registerModule(KotlinModule())
     val signinData =
-        SigninRequest("test@email.com", "1234")
+        SigninRequest("test@email.com", "bikemap12345@@")
 
     init {
         beforeEach {
@@ -58,6 +59,25 @@ class SigninControllerTest(mockMvc: MockMvc) : DescribeSpec() {
                                 )
                             )
                         )
+                    }
+                }
+            }
+
+            context("유효하지 않은 로그인 정보가 주어지면") {
+                listOf(
+                    SigninRequest("", ""),
+                    SigninRequest("abc", ""),
+                    SigninRequest(signinData.email, ""),
+                    SigninRequest(signinData.email, " "),
+                    SigninRequest(signinData.email, "testaaa")
+                ).forEach {
+                    it("상태코드 400을 응답한다.") {
+                        mockMvc.post("/signin") {
+                            contentType = APPLICATION_JSON
+                            content = objectMapper.writeValueAsString(it)
+                        }.andExpect {
+                            status { isBadRequest() }
+                        }
                     }
                 }
             }
