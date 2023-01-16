@@ -1,31 +1,43 @@
 package com.bikemap.api.application.auth.service
 
-import com.bikemap.api.application.auth.domain.Authentication
+import com.bikemap.api.application.user.domain.User
+import com.bikemap.api.application.user.domain.UserRepository
 import com.bikemap.api.jwt.JwtProvider
-import com.ninjasquad.springmockk.MockkBean
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldNotBe
 import io.mockk.every
+import io.mockk.mockk
 
 class SigninServiceTest : DescribeSpec() {
-    private val ACCESS_TOKEN_EXPIRY: Long = 1000 * 60 * 30
-    private val REFRESH_TOKEN_EXPIRY: Long = 1000 * 60 * 60 * 24
-
-    @MockkBean
     private lateinit var signinService: SigninService
 
-    private val jwtProvider: JwtProvider = JwtProvider(
+    val ACCESS_TOKEN_EXPIRY: Long = 1000 * 60 * 30
+    val REFRESH_TOKEN_EXPIRY: Long = 1000 * 60 * 60 * 24
+
+    val userRepository: UserRepository = mockk()
+    val jwtProvider: JwtProvider = JwtProvider(
         "9l3hgt08wgcljwwx7itch6z1nwe236w3",
         "9l3hgt08wgcljwwx7itch6z1nwe236w3",
         ACCESS_TOKEN_EXPIRY,
         REFRESH_TOKEN_EXPIRY
     )
 
+    val email = "test@email.com"
+    val password = "bakemap12345"
+    val user = User(
+        id = 1L,
+        email = email,
+        password = password
+    )
+
     init {
+        beforeEach {
+            this.signinService = SigninService(jwtProvider, userRepository)
+        }
         describe("SigninService Class") {
             every {
-                signinService.signin(any(), any())
-            } returns Authentication("", "")
+                userRepository.findByEmail("test@email.com")
+            } returns user
 
             it("Authentication을 반환한다.") {
                 val authentication = signinService.signin("test@email.com", "1234")
