@@ -65,6 +65,9 @@ dependencies {
 
     // asciidoctor
     asciidoctorExt("org.springframework.restdocs:spring-restdocs-asciidoctor:3.0.0")
+
+    // Validation
+    implementation("org.springframework.boot:spring-boot-starter-validation:3.0.1")
 }
 
 tasks {
