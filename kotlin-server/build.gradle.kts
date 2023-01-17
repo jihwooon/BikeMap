@@ -10,6 +10,8 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint-idea") version "11.0.0"
 
     id("org.asciidoctor.jvm.convert") version "3.3.2"
+
+    jacoco
 }
 
 group = "com.bikemap"
@@ -70,6 +72,31 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation:3.0.1")
 }
 
+// jacoco
+tasks {
+    jacocoTestReport {
+        reports {
+            html.required.set(true)
+            xml.required.set(false)
+            csv.required.set(false)
+        }
+        finalizedBy("jacocoTestCoverageVerification")
+    }
+    jacocoTestCoverageVerification {
+        violationRules {
+            rule {
+                element = "CLASS"
+                limit {
+                    counter = "BRANCH"
+                    value = "COVEREDRATIO"
+                    minimum = "0.50".toBigDecimal()
+                }
+            }
+        }
+    }
+}
+
+// Restdoc
 tasks {
     withType<KotlinCompile> {
         kotlinOptions {
@@ -79,6 +106,7 @@ tasks {
     }
     withType<Test> {
         useJUnitPlatform()
+        finalizedBy("jacocoTestReport")
     }
     test {
         useJUnitPlatform()
