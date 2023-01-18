@@ -70,6 +70,19 @@ dependencies {
 
     // Validation
     implementation("org.springframework.boot:spring-boot-starter-validation:3.0.1")
+
+    // log4j2
+    implementation("org.springframework.boot:spring-boot-starter-log4j2:3.0.1")
+
+    // Lombok
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+}
+
+configurations {
+    all {
+        exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
+    }
 }
 
 // jacoco
