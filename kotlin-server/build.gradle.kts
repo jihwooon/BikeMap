@@ -73,6 +73,10 @@ dependencies {
 
     // log4j2
     implementation("org.springframework.boot:spring-boot-starter-log4j2:3.0.1")
+
+    // Lombok
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 }
 
 configurations {
