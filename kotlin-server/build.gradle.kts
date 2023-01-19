@@ -77,6 +77,9 @@ dependencies {
     // Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+
+    // Bouncycastle
+    implementation("org.bouncycastle:bcprov-jdk15on:1.70")
 }
 
 configurations {
