@@ -1,5 +1,6 @@
 package com.bikemap.api.application.auth.service
 
+import com.bikemap.api.application.user.domain.Email
 import com.bikemap.api.application.user.domain.Password
 import com.bikemap.api.application.user.domain.User
 import com.bikemap.api.application.user.domain.UserRepository
@@ -28,7 +29,7 @@ class SigninServiceTest : DescribeSpec() {
     val salt = "ugSmbgmN6xpyeV6RtY6NGQ=="
     val user = User(
         id = 1L,
-        email = email,
+        email = Email(email),
         password = Password(password, salt)
     )
 
