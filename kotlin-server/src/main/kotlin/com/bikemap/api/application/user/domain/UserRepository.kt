@@ -13,4 +13,11 @@ interface UserRepository : Repository<User, Long> {
      */
     @Query("select u from User u where u.email.email = :email")
     fun findByEmail(email: String): User?
+
+    /**
+     * 사용자 정보를 저장합니다.
+     *
+     * @param user 사용자
+     */
+    fun save(user: User): User
 }
