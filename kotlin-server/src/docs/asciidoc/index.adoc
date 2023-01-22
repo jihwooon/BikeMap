@@ -5,6 +5,4 @@
 :toclevels: 3
 
 include::Signin.adoc[]
-
-
-
+include::Signup.adoc[]

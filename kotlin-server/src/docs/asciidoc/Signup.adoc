@@ -1,0 +1,6 @@
+[[Signup]]
+== 회원가입
+
+이메일과 패스워드, 이름, 성별, 생년월일을 입력한다
+
+operation::signup-post[snippets='http-request,response-body,request-fields']
