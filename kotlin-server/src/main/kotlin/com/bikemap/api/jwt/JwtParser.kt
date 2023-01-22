@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import java.security.Key
 
+/**
+ * Jwt Parser 객체
+ */
 @Component
 class JwtParser(
     @Value("\${jwt.secret}") accessToken: String,
@@ -24,6 +27,12 @@ class JwtParser(
     fun parsingAccessToken(token: String): Claims = parsingToken(token, accessTokenKey)
     fun parsingRefreshToken(token: String): Claims = parsingToken(token, refreshTokenKey)
 
+    /**
+     * Token을 분석하다.
+     *
+     * @param token JWT 인증 토큰
+     * @param key JWT 키
+     */
     fun parsingToken(token: String, key: Key): Claims {
         try {
             return Jwts.parserBuilder()

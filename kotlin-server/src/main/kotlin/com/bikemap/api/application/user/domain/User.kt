@@ -10,6 +10,9 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import java.time.LocalDate
 
+/**
+ * User 객체
+ */
 @Entity
 class User(
 
