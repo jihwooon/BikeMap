@@ -1,10 +1,15 @@
 package com.bikemap.api.application
 
 import org.bouncycastle.crypto.generators.SCrypt
+import org.springframework.stereotype.Component
 import java.nio.charset.StandardCharsets.UTF_16
 import java.security.SecureRandom
 import java.util.Base64
 
+/**
+ * 해시 암호 생성기
+ */
+@Component
 class KeyGenerator {
     private val secureRandom = SecureRandom()
 
