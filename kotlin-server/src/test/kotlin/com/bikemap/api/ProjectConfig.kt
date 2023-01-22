@@ -1,4 +1,4 @@
-package com.bikemap.api.web.signin
+package com.bikemap.api
 
 import io.kotest.core.config.AbstractProjectConfig
 import io.kotest.extensions.spring.SpringExtension
