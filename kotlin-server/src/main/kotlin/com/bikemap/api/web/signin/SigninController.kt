@@ -8,11 +8,18 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 
+/**
+ * 로그인 컨트롤러
+ */
 @RestController
 class SigninController(
     private val signinService: SigninService
 ) {
-
+    /**
+     * 로그인을 합니다.
+     *
+     * @param request 로그인 입력된 데이터
+     */
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signin")
     fun handleSignin(@Valid @RequestBody request: SigninRequest): SigninResponse {

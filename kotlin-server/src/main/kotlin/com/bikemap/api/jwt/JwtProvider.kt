@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component
 import java.security.Key
 import java.util.Date
 
+/**
+ * Jwt Provider 객체
+ */
 @Component
 class JwtProvider(
     @Value("\${jwt.secret}") accessToken: String,
@@ -36,6 +39,13 @@ class JwtProvider(
 
     private fun getExpirationDate(expiry: Long): Long = Date().time + expiry
 
+    /**
+     * Token을 생성합니다.
+     *
+     * @param userId 유저 id
+     * @param key JWT 키
+     * @param expiry 만료 시간
+     */
     fun generateToken(userId: Long, key: Key, expiry: Long): String {
         return Jwts.builder()
             .claim("id", userId)

@@ -5,6 +5,12 @@ import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Size
 
+/**
+ * 로그인 요청 데이터
+ *
+ * @property email 사용자 이메일
+ * @property password 사용자 비밀번호
+ */
 data class SigninRequest(
 
     @Email(message = "올바른 이메일 형식이 아닙니다.")
