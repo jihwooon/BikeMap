@@ -50,8 +50,8 @@
 
 
 ## 프로젝트 관련 추가 포스팅
-- [InvalidDataAccessApiUsageException를 해결하라](https://github.com/users/jihwooon/projects/8/views/7?pane=issue&itemId=18529933)  
-- [SpringBoot 환경에서 Kotest를 설정하라](https://github.com/users/jihwooon/projects/8/views/7?pane=issue&itemId=18089301)  
+- [InvalidDataAccessApiUsageException를 해결하라](https://github.com/jihwooon/BikeMap/pull/54)  
+- [java.sql.SQLNonTransientConnectionException 에러를 해결하라](https://github.com/jihwooon/BikeMap/pull/33)  
 - [UninitializedPropertyAccessException 에러를 해결하라](https://github.com/jihwooon/BikeMap/pull/29)
 
 
