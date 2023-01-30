@@ -49,6 +49,11 @@
 자세한 내용을 확인 하고 싶으시면, [Wiki Documentation](https://github.com/jihwooon/Algorithm-JavaScript/wiki)를 참조 하시면 됩니다.
 
 
+## 프로젝트 관련 추가 포스팅
+[InvalidDataAccessApiUsageException를 해결하라](https://github.com/users/jihwooon/projects/8/views/7?pane=issue&itemId=18529933)  
+[SpringBoot 환경에서 Kotest를 설정하라](https://github.com/users/jihwooon/projects/8/views/7?pane=issue&itemId=18089301)
+
+
 [GitHub-last-commit]: https://img.shields.io/github/last-commit/jihwooon/BikeMap?style=flat-square
 [GitHub-pull-request]: https://img.shields.io/github/issues-pr/jihwooon/BikeMap?color=ff69b4
 
