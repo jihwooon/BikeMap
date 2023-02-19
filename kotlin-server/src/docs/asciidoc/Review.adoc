@@ -1,0 +1,6 @@
+[[Review]]
+== 후기 게시판
+
+후기 게시판에 제목과 내용을 입력합니다.
+
+operation::review-post[snippets='http-request,request-fields']
