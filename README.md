@@ -43,6 +43,9 @@
 **프론트엔드**
 - React
 
+## 스프린트
+[BikeMap Scrum](https://github.com/users/jihwooon/projects/8)
+
 ## Content
 [![Guide Documents](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/jihwooon/BikeMap/wiki)
 
