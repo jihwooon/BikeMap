@@ -44,12 +44,12 @@
 - React
 
 ## 스프린트
-[BikeMap Scrum](https://github.com/users/jihwooon/projects/8)
+[BikeMap Scrum](https://github.com/users/jihwooon/projects/8) 다음과 같이 진행합니다. 
 
-## Content
-[![Guide Documents](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://github.com/jihwooon/BikeMap/wiki)
-
-자세한 내용을 확인 하고 싶으시면, [Wiki Documentation](https://github.com/jihwooon/Algorithm-JavaScript/wiki)를 참조 하시면 됩니다.
+1. 할 일의 목록은 ProductBacklog에 추가합니다.
+2. 진행 방식은 한 주 1주 단위로 스프린트으로 진행 합니다.
+3. 작업의 크기는 하루 안에 끝날 정도로 나눕니다.
+4. 스프린트 기간은 월 ~ 금 까지 스프린트를 실행하며 마지막 금요일에는 모든 기능이 완성이 되어야 합니다.  
 
 
 ## 프로젝트 관련 추가 포스팅
