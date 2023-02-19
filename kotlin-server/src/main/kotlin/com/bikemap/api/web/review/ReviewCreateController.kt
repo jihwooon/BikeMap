@@ -1,5 +1,6 @@
 package com.bikemap.api.web.review
 
+import com.bikemap.api.application.review.service.ReviewCreator
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController
  * 후기 게시판 컨트롤러
  */
 @RestController
-class ReviewCreateController {
+class ReviewCreateController(
+    private val reviewCreator: ReviewCreator
+) {
     /**
      * 후기 게시판 생성 요청을 처리합니다.
      *
@@ -19,6 +22,7 @@ class ReviewCreateController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/reviews")
     fun createReview(@RequestBody request: RequestData) {
+        reviewCreator.create(request.title, request.content)
     }
 
     /**
